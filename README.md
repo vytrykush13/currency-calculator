@@ -21,15 +21,9 @@ Support for converting between a wide range of currencies
 - TypeScript
 
 
-## Users have the ability to
-
-Create Custom Tests: Users can design their own personalized tests.
-
-Take Existing Tests: Users can participate in tests that have already been created.
-
 ## Installation
 ```
-git clone https://github.com/your-username/currency-calculator.git
+git clone https://github.com/vytrykush13/currency-calculator.git
 ```
 
 ## Install dependencies
@@ -43,7 +37,7 @@ yarn start
 ```
 
 ## Demo
-Try the live version [here](https://quiz-tawny-zeta.vercel.app)
+Try the live version [here](https://currency-calculator-two.vercel.app)
 
 ## Contact:
 
