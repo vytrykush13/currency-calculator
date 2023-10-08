@@ -1,0 +1,210 @@
+/* Reset Styles */
+*,*:before,*::after{
+  box-sizing: border-box;
+}
+
+/* vars */
+@property --deg {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+:root{
+  --anim-width: 270px;
+  --anim-width-minus: -270px ;
+}
+
+.App {
+  background: linear-gradient(var(--deg), #f39c12 40%, #f1c40f);
+  height: 100vh;
+  animation: infinityRotateBG infinite 20s linear;
+}
+
+.main{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  width: 100%;
+  max-width: 500px;
+  padding: 0 15px;
+
+}
+
+.title{
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+}
+
+.selects{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: #2c3e50;
+  background-image: none;
+  cursor: pointer;
+  
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 200px;;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+}
+
+.select1AnimStart{
+  animation: move1Start 1s forwards;
+}
+
+.select2AnimStart{
+  animation: move2Start 1s forwards;
+}
+
+
+.select1AnimEnd{
+  animation: move1End 1s forwards;
+}
+
+.select2AnimEnd{
+  animation: move2End 1s forwards;
+}
+
+
+
+/* Arrow */
+.select::after {
+  content: '\25BC';
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: #34495e;
+  color: white;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+.select:hover::after {
+  color: #f39c12;
+}
+
+
+
+input{
+  display: block;
+  padding: 15px;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  background-color: #2c3e50;
+  color: white;
+  margin-top: 30px;
+}
+
+.swapIcon{
+  cursor: pointer;
+}
+
+
+.rate_for{
+  color: white;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+/* Animation */
+
+@keyframes infinityRotateBG{
+  0%{
+    --deg: 0deg
+  }
+
+  100%{
+    --deg: 360deg
+  }
+}
+
+@keyframes move1Start{
+  0%{
+    transform: translateX(0px);
+  }
+
+  100%{
+    transform: translateX(var(--anim-width));
+  }
+}
+
+@keyframes move1End{
+  0%{
+    transform: translateX(var(--anim-width));
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+@keyframes move2Start{
+  0%{
+    transform: translateX(0px);
+  }
+
+  100%{
+    transform: translateX(var(--anim-width-minus));
+  }
+}
+
+@keyframes move2End{
+  0%{
+    transform: translateX(var(--anim-width-minus));
+  }
+
+  100%{
+    transform: translateX(0px);
+  }
+}
+
+
+/* mobile */
+@media (max-width: 600px){
+  .select, select{
+    width: 120px;
+  }
+
+  .select_wrapper{
+    margin: 0 7px;
+  }
+
+  .selects {
+    justify-content: center;
+  }
+
+  input{
+    width: 120px;
+  }
+
+  :root{
+    --anim-width: 175px;
+    --anim-width-minus: -175px ;
+  }
+  
+}
